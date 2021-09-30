@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Basic Table</h2>
+  <td></td>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>STT</td>
+      <td>title</td>
+      <td>author</td>
+      <td>description</td>
+    </tr>
+    </thead>
+    <tbody *ngFor="let book of books; index as i ">
+    <tr>
+      <td>{{i + 1}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.description}}</td>
+      <td>
+        <button (click)="deleteBook(book.id)" type="button" class="btn btn-outline-danger">Delete</button>
+      </td>
+      <td><a [routerLink]="['/book/edit',book.id]" type="button" class="btn btn-outline-warning">Edit</a></td>
+      <td><a [routerLink]="['/book/show',book.id]" type="button" class="btn btn-outline-warning">Show</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

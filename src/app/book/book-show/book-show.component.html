@@ -1,0 +1,41 @@
+<main id="main">
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section id="portfolio-details" class="portfolio-details" >
+    <div class="container">
+
+      <div class="row 6">
+
+
+        <div class="col-lg-6" >
+          <div class="portfolio-info">
+            <h3>Book information</h3>
+            <form [formGroup]="bookForm" >
+              <ul>
+                <li><strong>Mã Sách</strong>: {{bookForm.get('id')?.value}}</li>
+                <li><strong>Title</strong>: {{bookForm.get('title')?.value}} </li>
+                <li><strong>Author</strong>: {{bookForm.get('author')?.value}}</li>
+                <li><strong>Book List</strong>: <a routerLink="/book/list">Xem thêm</a></li>
+              </ul>
+            </form>
+
+          </div>
+
+          <div class="portfolio-description">
+            <form>
+              <h2>Description</h2>
+              <p>
+                {{bookForm.get('description')?.value}}
+              </p>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Details Section -->
+
+</main><!-- End #main -->

@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Book} from "../../model/book";
+import {BookService} from "../../service/book.service";
 
 @Component({
   selector: 'app-book-edit',
@@ -12,6 +13,7 @@ import {Book} from "../../model/book";
 export class BookEditComponent implements OnInit {
   bookForm!: FormGroup;
   id!: number;
+
   constructor(private activatedRoute: ActivatedRoute,
               private http :HttpClient,
               private router :Router) {
@@ -35,9 +37,10 @@ export class BookEditComponent implements OnInit {
   }
 
   saveBook() {
-    this.http.post<Book>('http://localhost:3000/books/', this.bookForm.value).subscribe((data) => {
+    this.http.put<Book>(`http://localhost:3000/books/${this.id}`, this.bookForm.value).subscribe((data) => {
       alert("edit thành công - " + data.title)
       this.router.navigate(['/book/list']);
     })
   }
+
 }
